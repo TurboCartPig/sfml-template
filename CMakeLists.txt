@@ -43,13 +43,15 @@ include(FetchContent)
 
 # Fetch sfml from github
 FetchContent_Declare(
-	SFML
+	sfml
 	GIT_REPOSITORY https://github.com/SFML/SFML
 	GIT_TAG 2.5.1
 )
-FetchContent_MakeAvailable(SFML)
+set(BUILD_SHARED_LIBS FALSE)
+FetchContent_MakeAvailable(sfml)
 
-find_package(SFML 2.5 REQUIRED COMPONENTS system window graphics)
+# If you have a different way to install SFML, you can use this to find it.
+# find_package(SFML 2.5 REQUIRED COMPONENTS system window graphics)
 
 # Setup individual exercises as buildable targets
 # ******************************************************************
@@ -61,6 +63,5 @@ set(CXX_EXTENSIONS OFF)
 
 # Define a simple window example
 add_executable(window src/window.cpp)
-target_link_libraries(window PRIVATE sfml-graphics)
+target_link_libraries(window PRIVATE sfml-system sfml-window sfml-graphics)
 target_compile_options(window PRIVATE ${COMPILER_WARNINGS_AND_ERRORS})
-
