@@ -11,11 +11,7 @@ project(
 # NOTE: Some of these are quite new and might require newer versions of
 # compilers then those usually distributed.
 set(COMPILER_WARNINGS_AND_ERRORS
-    $<$<CXX_COMPILER_ID:MSVC>:/W4>
-    $<$<CXX_COMPILER_ID:MSVC>:/w44061>
-    $<$<CXX_COMPILER_ID:MSVC>:/w44062>
-    $<$<CXX_COMPILER_ID:MSVC>:/w44265>
-    $<$<CXX_COMPILER_ID:MSVC>:/w44267>
+    $<$<CXX_COMPILER_ID:MSVC>:/W3>
     $<$<CXX_COMPILER_ID:MSVC>:/permissive->
     $<$<CXX_COMPILER_ID:GNU>:-Wmisleading-indentation>
     $<$<CXX_COMPILER_ID:GNU>:-Wduplicated-cond>
